@@ -17,6 +17,7 @@ release:
   stage: release
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $LOCAL_TAG -f $CI_PROJECT_DIR/docker/Dockerfile $CI_PROJECT_DIR/docker
     - docker tag $LOCAL_TAG ${EXT_TAG}:latest 
     - docker tag ${EXT_TAG}:latest ${EXT_TAG}:master-${CI_COMMIT_SHORT_SHA}
     - docker push ${EXT_TAG}:latest | grep -e "The push refers to" -e latest
