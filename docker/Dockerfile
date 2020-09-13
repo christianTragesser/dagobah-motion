@@ -10,7 +10,6 @@ RUN set -ex; \
 
 ADD motion.conf /etc/motion/motion.conf
 ADD thread1.conf /etc/motion/thread1.conf
-ADD thread2.conf /etc/motion/thread2.conf
 ADD run.sh /etc/motion/run.sh
 ADD clean_up.sh /etc/motion/clean_up.sh
 
